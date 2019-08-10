@@ -88,17 +88,24 @@ var Game = new Phaser.Class({
     {
         console.log('%c Game ', 'background: green; color: white; display: block;');
         this.add.image(400, 300, 'tabla');
-    },
 
-    // update: function (time, delta)
-    // {
-    //     this.controls.update(delta);
-    //
-    //     this.text.setText([
-    //         'x: ' + this.track.x,
-    //         'y: ' + this.track.y
-    //     ]);
-    // }
+        var graphics = this.add.graphics();
+
+   graphics.lineStyle(4, 0x00ff00, 1);
+
+   //graphics.strokeRect(32, 32, 256, 256);
+
+   graphics.fillStyle(0xff0000, 0.9);
+
+   graphics.fillCircle(300, 300, 120);
+
+   //graphics.lineStyle(4, 0xff00ff, 1);
+
+  // graphics.strokeEllipse(400, 300, 200, 128);
+
+   // graphics.setAlpha(0.5);
+    }
+
 
 });
 
