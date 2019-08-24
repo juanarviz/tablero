@@ -81,13 +81,17 @@ var Game = new Phaser.Class({
 
     preload: function()
     {
-      this.load.image('tabla', 'assets/tabla.png');
+      this.load.image('ruleta', 'assets/ruleta.png');
     },
 
     create: function ()
     {
         console.log('%c Game ', 'background: green; color: white; display: block;');
-        this.add.image(400, 300, 'tabla');
+        roulette = this.add.image(400, 300, 'ruleta');
+         roulette.displayWidth = 280;
+         roulette.displayHeight = 280;
+
+      //  this.add.image(400, 280,  'ruleta');
 
         var graphics = this.add.graphics();
 
@@ -95,17 +99,38 @@ var Game = new Phaser.Class({
 
    //graphics.strokeRect(32, 32, 256, 256);
 
-   graphics.fillStyle(0xff0000, 0.9);
+   graphics.fillStyle(0x81ecec, 0.);
 
-   graphics.fillCircle(300, 300, 120);
+   graphics.fillCircle(400, 300, 160);
 
+   var graphics = this.add.graphics();
+
+       graphics.lineStyle(50, 0xffffff);
+
+       graphics.beginPath();
+       graphics.arc(400, 300, 200, Phaser.Math.DegToRad(0), Phaser.Math.DegToRad(360), false, 0.02);
+       graphics.strokePath();
+       graphics.closePath();
+
+       graphics.beginPath();
+       graphics.lineStyle(40, 0xc8d6e5);
+       graphics.arc(400, 300, 300, Phaser.Math.DegToRad(0), Phaser.Math.DegToRad(360), true, 0.02);
+       graphics.strokePath();
+       graphics.closePath();
+
+       graphics.beginPath();
+       graphics.lineStyle(40, 0xc8d6e5);
+       graphics.arc(400, 300, 22, Phaser.Math.DegToRad(0), Phaser.Math.DegToRad(360), true, 0.02);
+       graphics.strokePath();
+       graphics.closePath();
    //graphics.lineStyle(4, 0xff00ff, 1);
-
   // graphics.strokeEllipse(400, 300, 200, 128);
-
    // graphics.setAlpha(0.5);
-    }
+   },
 
+   update: function() {
+       roulette.angle += 1.3;
+   }
 
 });
 
@@ -138,11 +163,13 @@ var GameOver = new Phaser.Class({
 
 });
 
+var roulette;
+
 var config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
-    backgroundColor: '#000000',
+    backgroundColor: '#7f8fa6',
     parent: 'phaser-example',
     physics: {
         default: 'arcade',
