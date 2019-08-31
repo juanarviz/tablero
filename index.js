@@ -11,7 +11,6 @@ var Preloader = new Phaser.Class({
 
     preload: function ()
     {
-        this.load.atlas('gems', 'assets/columns.png', 'assets/columns.json');
         this.load.image('buttonBG', 'assets/button-bg.png');
         this.load.image('buttonText', 'assets/button-text.png');
         this.load.image('ayu', 'assets/ayu.png');
