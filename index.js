@@ -42,6 +42,11 @@ var MainMenu = new Phaser.Class({
         window.MENU = this;
     },
 
+    preload: function ()
+    {
+        this.load.css('80s', 'assets/css/mainmenu.css');
+    },
+
     create: function ()
     {
         console.log('%c MainMenu ', 'background: green; color: white; display: block;');
@@ -49,15 +54,16 @@ var MainMenu = new Phaser.Class({
         var bg = this.add.image(0, 0, 'buttonBG');
         var text = this.add.image(0, 0, 'buttonText');
 
-        var container = this.add.container(400, 300, [ bg, text ]);
+        this.add.container(400, 300, [ bg, text ]);
 
         bg.setInteractive();
 
         bg.once('pointerup', function () {
-
             this.scene.start('game');
-
         }, this);
+
+        const h1 = this.add.dom(100, 100, 'h1', null, 'CHROME');
+        h1.setClassName('chrome');
     }
 
 });
@@ -165,6 +171,9 @@ var GameOver = new Phaser.Class({
 var roulette;
 
 var config = {
+    dom: {
+        createContainer: true
+    },
     type: Phaser.AUTO,
     width: 800,
     height: 600,
