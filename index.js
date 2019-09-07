@@ -64,6 +64,7 @@ var MainMenu = new Phaser.Class({
 
         const h1 = this.add.dom(100, 100, 'h1', null, 'CHROME');
         h1.setClassName('chrome');
+
     }
 
 });
@@ -82,33 +83,26 @@ var Game = new Phaser.Class({
         this.controls;
         this.track;
         this.text;
+        this.canSpin = false;
     },
 
     preload: function()
     {
       this.load.image('ruleta', 'assets/ruleta.png');
+      this.load.css('80s', 'assets/css/game.css');
     },
 
     create: function ()
     {
         console.log('%c Game ', 'background: green; color: white; display: block;');
         roulette = this.add.image(400, 300, 'ruleta');
-         roulette.displayWidth = 280;
-         roulette.displayHeight = 280;
-
-      //  this.add.image(400, 280,  'ruleta');
+       roulette.displayWidth = 280;
+       roulette.displayHeight = 280;
 
         var graphics = this.add.graphics();
-
-   graphics.lineStyle(4, 0x00ff00, 1);
-
-   //graphics.strokeRect(32, 32, 256, 256);
-
-   graphics.fillStyle(0x81ecec, 0.);
-
-   graphics.fillCircle(400, 300, 160);
-
-   var graphics = this.add.graphics();
+        graphics.lineStyle(4, 0x00ff00, 1);
+        graphics.fillStyle(0x81ecec, 0);
+        graphics.fillCircle(400, 300, 160);
 
        graphics.lineStyle(50, 0xffffff);
 
@@ -128,13 +122,29 @@ var Game = new Phaser.Class({
        graphics.arc(400, 300, 22, Phaser.Math.DegToRad(0), Phaser.Math.DegToRad(360), true, 0.02);
        graphics.strokePath();
        graphics.closePath();
-   //graphics.lineStyle(4, 0xff00ff, 1);
-  // graphics.strokeEllipse(400, 300, 200, 128);
-   // graphics.setAlpha(0.5);
+
+       const stop = this.add.dom(400, 400, 'button', null, 'STOP');
+       stop.setClassName('stop');
+       stop.setInteractive();
+
+       stop.once('pointerup', function () {
+           this.canSpin = false;
+       }, this);
+
+       const button = this.add.dom(100, 100, 'button', null, 'GIRAR');
+       button.setClassName('girar');
+       button.setInteractive();
+
+       button.once('pointerup', function () {
+           this.canSpin = true;
+       }, this);
+
    },
 
    update: function() {
-       roulette.angle += 1.3;
+     if (this.canSpin) {
+       roulette.angle += 1.8;
+     }
    }
 
 });
