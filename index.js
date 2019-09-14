@@ -13,7 +13,7 @@ var Preloader = new Phaser.Class({
     {
         this.load.image('buttonBG', 'assets/button-bg.png');
         this.load.image('buttonText', 'assets/button-text.png');
-        this.load.image('ayu', 'assets/ayu.png');
+        this.load.image('ayu', 'assets/pinguin.png');
     },
 
     create: function ()
@@ -45,11 +45,16 @@ var MainMenu = new Phaser.Class({
     preload: function ()
     {
         this.load.css('80s', 'assets/css/mainmenu.css');
+          this.load.image('pinguin', 'assets/pinguin.png');
     },
 
     create: function ()
     {
         console.log('%c MainMenu ', 'background: green; color: white; display: block;');
+        pinguin = this.add.image(400, 250, 'pinguin');
+       pinguin.displayWidth = 280;
+       pinguin.displayHeight = 280;
+
 
         var bg = this.add.image(0, 0, 'buttonBG');
         var text = this.add.image(0, 0, 'buttonText');
@@ -62,8 +67,8 @@ var MainMenu = new Phaser.Class({
             this.scene.start('game');
         }, this);
 
-        const h1 = this.add.dom(100, 100, 'h1', null, 'CHROME');
-        h1.setClassName('chrome');
+        const h1 = this.add.dom(400, 30, 'h1', null, 'RULETEADOS');
+        h1.setClassName('h1');
 
     }
 
@@ -88,7 +93,7 @@ var Game = new Phaser.Class({
 
     preload: function()
     {
-      this.load.image('ruleta', 'assets/ruleta.png');
+      this.load.image('ruleta', 'assets/circulflecha.png');
       this.load.css('80s', 'assets/css/game.css');
     },
 
