@@ -1,7 +1,37 @@
 .button {
-    color: red;
+  text-decoration:none;
+   border-color: rgba(0, 0, 0, 0.00);
+   font-size: 20px;
+   color: #fff;
+   cursor: pointer;
+   display: inline-block;
+   border-radius: 5px;
+   height: 32px;
+   width: 235px;
+   background-color: #11B547;
+   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.9);
 }
 
 .stop {
-    color: red;
+    text-decoration:none;
+     border-color: rgba(0, 0, 0, 0.00);
+     font-size: 20px;
+     color: #fff;
+     cursor: pointer;
+     display: inline-block;
+     border-radius: 5px;
+     height: 32px;
+     width: 235px;
+     background-color: #11B547;
+     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.9);
+}
+
+.div {
+  width: 0;
+     height: 0;
+     border-right: 300px solid #f0ad4e;
+     border-top: 100px solid transparent;
+     border-bottom: 50px solid transparent;
+     color: red;
+
 }

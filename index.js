@@ -20,10 +20,10 @@ var Preloader = new Phaser.Class({
     {
         console.log('%c Preloader ', 'background: green; color: white; display: block;');
 
-        this.anims.create({ key: 'diamond', frames: this.anims.generateFrameNames('gems', { prefix: 'diamond_', end: 15, zeroPad: 4 }), repeat: -1 });
-        this.anims.create({ key: 'prism', frames: this.anims.generateFrameNames('gems', { prefix: 'prism_', end: 6, zeroPad: 4 }), repeat: -1 });
-        this.anims.create({ key: 'ruby', frames: this.anims.generateFrameNames('gems', { prefix: 'ruby_', end: 6, zeroPad: 4 }), repeat: -1 });
-        this.anims.create({ key: 'square', frames: this.anims.generateFrameNames('gems', { prefix: 'square_', end: 14, zeroPad: 4 }), repeat: -1 });
+      //  this.anims.create({ key: 'diamond', frames: this.anims.generateFrameNames('gems', { prefix: 'diamond_', end: 15, zeroPad: 4 }), repeat: -1 });
+      //  this.anims.create({ key: 'prism', frames: this.anims.generateFrameNames('gems', { prefix: 'prism_', end: 6, zeroPad: 4 }), repeat: -1 });
+      //  this.anims.create({ key: 'ruby', frames: this.anims.generateFrameNames('gems', { prefix: 'ruby_', end: 6, zeroPad: 4 }), repeat: -1 });
+      //  this.anims.create({ key: 'square', frames: this.anims.generateFrameNames('gems', { prefix: 'square_', end: 14, zeroPad: 4 }), repeat: -1 });
 
         this.scene.start('mainmenu');
     }
@@ -46,11 +46,16 @@ var MainMenu = new Phaser.Class({
     {
         this.load.css('80s', 'assets/css/mainmenu.css');
           this.load.image('pinguin', 'assets/pinguin.png');
+            this.load.image('estudent', 'assets/estudent.png');
     },
 
     create: function ()
     {
         console.log('%c MainMenu ', 'background: green; color: white; display: block;');
+        estudent = this.add.image(400, 250, 'estudent');
+       estudent.displayWidth = 780;
+       estudent.displayHeight = 600;
+
         pinguin = this.add.image(400, 250, 'pinguin');
        pinguin.displayWidth = 280;
        pinguin.displayHeight = 280;
@@ -59,7 +64,7 @@ var MainMenu = new Phaser.Class({
         var bg = this.add.image(0, 0, 'buttonBG');
         var text = this.add.image(0, 0, 'buttonText');
 
-        this.add.container(400, 300, [ bg, text ]);
+        this.add.container(400, 445, [ bg, text ]);
 
         bg.setInteractive();
 
@@ -128,7 +133,11 @@ var Game = new Phaser.Class({
        graphics.strokePath();
        graphics.closePath();
 
-       const stop = this.add.dom(400, 400, 'button', null, 'STOP');
+       const div = this.add.dom(400, 30, 'div', null, '');
+       div.setClassName('div');
+
+
+       const stop = this.add.dom(400, 480, 'button', null, 'STOP');
        stop.setClassName('stop');
        stop.setInteractive();
 
@@ -137,7 +146,7 @@ var Game = new Phaser.Class({
        }, this);
 
        const button = this.add.dom(100, 100, 'button', null, 'GIRAR');
-       button.setClassName('girar');
+       button.setClassName('button');
        button.setInteractive();
 
        button.once('pointerup', function () {
