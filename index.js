@@ -98,7 +98,7 @@ var Game = new Phaser.Class({
 
     preload: function()
     {
-      this.load.image('ruleta', 'assets/dos.jpeg');
+      this.load.image('ruleta', 'assets/colorcircul.png');
       this.load.css('80s', 'assets/css/game.css');
     },
 
@@ -139,7 +139,7 @@ var Game = new Phaser.Class({
 
         const startButton = document.createElement('input');
         startButton.type = 'button';
-        startButton.className = 'start';
+        startButton.className = 'button';
         startButton.value = 'GIRAR';
         startButton.onclick = function() { window.GAME.canSpin = true; };
         this.add.dom(50, 50, startButton).setInteractive();
