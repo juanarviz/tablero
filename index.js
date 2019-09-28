@@ -137,22 +137,19 @@ var Game = new Phaser.Class({
        div.setClassName('div');
 
 
-       const stop = this.add.dom(400, 480, 'button', null, 'STOP');
-       stop.setClassName('stop');
-       stop.setInteractive();
+        const startButton = document.createElement('input');
+        startButton.type = 'button';
+        startButton.className = 'start';
+        startButton.value = 'GIRAR';
+        startButton.onclick = function() { window.GAME.canSpin = true; };
+        this.add.dom(50, 50, startButton).setInteractive();
 
-       stop.once('pointerup', function () {
-           this.canSpin = false;
-       }, this);
-
-       const button = this.add.dom(100, 100, 'button', null, 'GIRAR');
-       button.setClassName('button');
-       button.setInteractive();
-
-       button.once('pointerup', function () {
-           this.canSpin = true;
-       }, this);
-
+        const stopButton = document.createElement('input');
+        stopButton.type = 'button';
+        stopButton.className = 'stop';
+        stopButton.value = 'STOP';
+        stopButton.onclick = function() { window.GAME.canSpin = false; };
+        this.add.dom(50, 100, stopButton).setInteractive();
    },
 
    update: function() {
