@@ -98,7 +98,7 @@ var Game = new Phaser.Class({
 
     preload: function()
     {
-      this.load.image('ruleta', 'assets/circulflecha.png');
+      this.load.image('ruleta', 'assets/dos.jpeg');
       this.load.css('80s', 'assets/css/game.css');
     },
 
@@ -106,8 +106,8 @@ var Game = new Phaser.Class({
     {
         console.log('%c Game ', 'background: green; color: white; display: block;');
         roulette = this.add.image(400, 300, 'ruleta');
-       roulette.displayWidth = 280;
-       roulette.displayHeight = 280;
+       roulette.displayWidth = 260;
+       roulette.displayHeight = 260;
 
         var graphics = this.add.graphics();
         graphics.lineStyle(4, 0x00ff00, 1);
@@ -133,7 +133,7 @@ var Game = new Phaser.Class({
        graphics.strokePath();
        graphics.closePath();
 
-       const div = this.add.dom(400, 30, 'div', null, '');
+       const div = this.add.dom(366, 75, 'div', null, '');
        div.setClassName('div');
 
 
@@ -201,7 +201,7 @@ var config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
-    backgroundColor: '#7f8fa6',
+    backgroundColor: '#819FF7',
     parent: 'phaser-example',
     physics: {
         default: 'arcade',
