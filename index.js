@@ -94,6 +94,14 @@ var Game = new Phaser.Class({
         this.track;
         this.text;
         this.canSpin = false;
+
+        this.categories = [
+            { color: '#FF0000', title: 'Matemáticas' },
+            { color: '#00FF00', title: 'Geografía' },
+            { color: '#0000FF', title: 'Historia' },
+            { color: '#FF00FF', title: 'Ciencias Naturales' },
+            { color: '#00FFFF', title: 'Español' }
+        ];
     },
 
     preload: function()
@@ -150,10 +158,18 @@ var Game = new Phaser.Class({
         stopButton.value = 'STOP';
         stopButton.onclick = function() { window.GAME.canSpin = false; };
         this.add.dom(50, 100, stopButton).setInteractive();
+
+        this.categoryText = document.createElement('span');
+        this.categoryText.innerHTML = '';
+        this.add.dom(350, 290, this.categoryText);
    },
 
    update: function() {
      if (this.canSpin) {
+        const randomCategory = this.categories[Math.floor(Math.random() * this.categories.length)];
+        this.categoryText.innerHTML = randomCategory.title;
+        this.categoryText.style = `color: ${randomCategory.color}`;
+
        roulette.angle += 1.8;
      }
    }
