@@ -20,11 +20,6 @@ var Preloader = new Phaser.Class({
     {
         console.log('%c Preloader ', 'background: green; color: white; display: block;');
 
-      //  this.anims.create({ key: 'diamond', frames: this.anims.generateFrameNames('gems', { prefix: 'diamond_', end: 15, zeroPad: 4 }), repeat: -1 });
-      //  this.anims.create({ key: 'prism', frames: this.anims.generateFrameNames('gems', { prefix: 'prism_', end: 6, zeroPad: 4 }), repeat: -1 });
-      //  this.anims.create({ key: 'ruby', frames: this.anims.generateFrameNames('gems', { prefix: 'ruby_', end: 6, zeroPad: 4 }), repeat: -1 });
-      //  this.anims.create({ key: 'square', frames: this.anims.generateFrameNames('gems', { prefix: 'square_', end: 14, zeroPad: 4 }), repeat: -1 });
-
         this.scene.start('mainmenu');
     }
 
@@ -108,6 +103,7 @@ var Game = new Phaser.Class({
     {
       this.load.image('ruleta', 'assets/colorcircul.png');
       this.load.css('80s', 'assets/css/game.css');
+        this.load.image('next', 'assets/init.png');
     },
 
     create: function ()
@@ -162,6 +158,17 @@ var Game = new Phaser.Class({
         this.categoryText = document.createElement('span');
         this.categoryText.innerHTML = '';
         this.add.dom(350, 290, this.categoryText);
+
+          var next = this.add.image(300, 230, 'next');
+          next.displayWidth = 120;
+          next.displayHeight = 120;
+
+          next.setInteractive();
+
+          next.once('pointerup', function () {
+              window.GAME.scene.start('nivel1');
+          }, window.GAME);
+
    },
 
    update: function() {
@@ -175,6 +182,62 @@ var Game = new Phaser.Class({
    }
 
 });
+
+var Nivel1 = new Phaser.Class({
+
+    Extends: Phaser.Scene,
+
+    initialize:
+
+    function Nivel1 ()
+    {
+        Phaser.Scene.call(this, { key: 'nivel1' });
+        window.OVER = this;
+    },
+
+    preload: function()
+    {
+        this.load.image('mushroom', 'assets/mushroom2.png');
+    },
+
+    create: function ()
+    {
+        console.log('%c Nivel1 ', 'background: green; color: white; display: block;');
+        var image3 = this.add.image(80, 80, 'mushroom');
+        image3.displayWidth = 80;
+        image3.displayHeight = 80;
+
+        const h1 = this.add.dom(400, 30, 'h1', null, 'RULETEADOS');
+        h1.setClassName('h1');
+
+        var graphics = this.add.graphics();
+        graphics.lineStyle(10, 0x00ff00, 8);
+        graphics.fillStyle(0x747d8c, 2);
+        graphics.fillCircle(400, 220, 60);
+
+        graphics.fillStyle(0xFDA7DF, 2);
+        graphics.fillCircle(300, 290, 60);
+
+        graphics.fillStyle(0xEE5A24, 2);
+        graphics.fillCircle(350, 400, 60);
+
+        graphics.fillStyle(0x833471, 2);
+        graphics.fillCircle(450, 410, 60);
+
+        graphics.fillStyle(0xEA2027, 2);
+        graphics.fillCircle(495, 295, 60);
+
+       graphics.beginPath();
+       graphics.lineStyle(40, 0xc8d6e5);
+       graphics.arc(400, 325, 50, Phaser.Math.DegToRad(0), Phaser.Math.DegToRad(360), true, 0.02);
+       graphics.strokePath();
+       graphics.closePath();
+
+    }
+
+});
+
+
 
 var GameOver = new Phaser.Class({
 
@@ -223,7 +286,7 @@ var config = {
             debug: true
         }
     },
-    scene: [ Preloader, MainMenu, Game, GameOver ]
+    scene: [ Preloader, MainMenu, Game, Nivel1, GameOver ]
 };
 
 var game = new Phaser.Game(config);

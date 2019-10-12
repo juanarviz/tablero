@@ -1,0 +1,9 @@
+.h1 {
+    color: #3c6382;
+    font-family: cursive;
+    font-size: 76px;
+   }
+
+   .div {
+     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.20);
+   }
