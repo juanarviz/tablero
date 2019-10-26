@@ -1,9 +1,48 @@
-.h1 {
-    color: #3c6382;
-    font-family: cursive;
-    font-size: 76px;
-   }
+h1 {
+  color: #3c6382;
+  font-family: cursive;
+  font-size: 76px;
+}
 
-   .div {
-     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.20);
-   }
+h2 {
+  font-family: cursive;
+  font-size: 49px;
+}
+
+.circle {
+  border: 4px solid #F5F5F5;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.9);
+  height: 180px;
+  width: 180px;
+}
+
+.gray {
+  background-color: #c8d6e5;
+}
+
+.red {
+  background-color: #e74c3c;
+}
+.green {
+  background-color: #2ecc71;
+}
+
+.purple {
+  background-color: #9b59b6;
+}
+
+.turquis {
+  background-color: #1abc9c;
+}
+
+.pink {
+  background-color: #fab1a0;
+}
+
+.mushroom {
+  background-image: url("./mushroom.png");
+  background-repeat: no-repeat;
+  height: 80px;
+  width: 80px;
+}

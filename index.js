@@ -198,41 +198,57 @@ var Nivel1 = new Phaser.Class({
     preload: function()
     {
         this.load.image('mushroom', 'assets/mushroom2.png');
+        this.load.css('90s', 'assets/css/nivel1.css');
     },
 
     create: function ()
     {
         console.log('%c Nivel1 ', 'background: green; color: white; display: block;');
+        this.add.dom(400, 30, 'h1', null, 'RULETEADOS');
+
         var image3 = this.add.image(80, 80, 'mushroom');
         image3.displayWidth = 80;
         image3.displayHeight = 80;
 
-        const h1 = this.add.dom(400, 30, 'h1', null, 'RULETEADOS');
-        h1.setClassName('h1');
+        const grayCircle = document.createElement("div");
+        grayCircle.className = "circle gray";
+        this.add.dom(400, 200, grayCircle);
 
-        var graphics = this.add.graphics();
-        graphics.lineStyle(10, 0x00ff00, 8);
-        graphics.fillStyle(0x747d8c, 2);
-        graphics.fillCircle(400, 220, 60);
+        this.add.dom(400, 130, 'h2', null, '?');
 
-        graphics.fillStyle(0xFDA7DF, 2);
-        graphics.fillCircle(300, 290, 60);
+        const redCircle = document.createElement("div");
+        redCircle.className = "circle red";
+        this.add.dom(415, 440, redCircle);
 
-        graphics.fillStyle(0xEE5A24, 2);
-        graphics.fillCircle(350, 400, 60);
+          this.add.dom(430, 400, 'h2', null, '?');
 
-        graphics.fillStyle(0x833471, 2);
-        graphics.fillCircle(450, 410, 60);
+        const greenCircle = document.createElement("div");
+        greenCircle.className = "circle green";
+        this.add.dom(530, 300, greenCircle);
 
-        graphics.fillStyle(0xEA2027, 2);
-        graphics.fillCircle(495, 295, 60);
+        this.add.dom(500, 280, 'h2', null, '?');
 
-       graphics.beginPath();
-       graphics.lineStyle(40, 0xc8d6e5);
-       graphics.arc(400, 325, 50, Phaser.Math.DegToRad(0), Phaser.Math.DegToRad(360), true, 0.02);
-       graphics.strokePath();
-       graphics.closePath();
+        const purpleCircle = document.createElement("div");
+        purpleCircle.className = "circle purple";
+        this.add.dom(250, 380, purpleCircle);
 
+        this.add.dom(230, 180, 'h2', null, '?');
+
+       const turquisCircle = document.createElement("div");
+       turquisCircle.className = "circle turquis";
+       this.add.dom(250, 270, turquisCircle);
+
+       this.add.dom(220, 350, 'h2', null, '?');
+
+        const pinkCircle = document.createElement("div");
+        pinkCircle.className = "circle pink";
+        this.add.dom(400, 300, pinkCircle);
+
+        this.add.dom(400, 270, 'h2', null, '?');
+
+        const mushroom = document.createElement("div");
+        mushroom.className = "mushroom";
+        this.add.dom(410, 310, mushroom);
     }
 
 });
