@@ -213,42 +213,43 @@ var Nivel1 = new Phaser.Class({
         const grayCircle = document.createElement("div");
         grayCircle.className = "circle gray";
         this.add.dom(400, 200, grayCircle);
-
-        this.add.dom(400, 130, 'h2', null, '?');
+        this.add.dom(470, 180, 'h2', null, '?');
 
         const redCircle = document.createElement("div");
         redCircle.className = "circle red";
         this.add.dom(415, 440, redCircle);
-
-          this.add.dom(430, 400, 'h2', null, '?');
+        this.add.dom(480, 450, 'h2', null, '?');
 
         const greenCircle = document.createElement("div");
         greenCircle.className = "circle green";
         this.add.dom(530, 300, greenCircle);
-
-        this.add.dom(500, 280, 'h2', null, '?');
+        this.add.dom(620, 300, 'h2', null, '?');
 
         const purpleCircle = document.createElement("div");
         purpleCircle.className = "circle purple";
         this.add.dom(250, 380, purpleCircle);
-
-        this.add.dom(230, 180, 'h2', null, '?');
+        this.add.dom(330, 400, 'h2', null, '?');
 
        const turquisCircle = document.createElement("div");
        turquisCircle.className = "circle turquis";
        this.add.dom(250, 270, turquisCircle);
-
-       this.add.dom(220, 350, 'h2', null, '?');
+       this.add.dom(320, 280, 'h2', null, '?');
 
         const pinkCircle = document.createElement("div");
         pinkCircle.className = "circle pink";
         this.add.dom(400, 300, pinkCircle);
 
-        this.add.dom(400, 270, 'h2', null, '?');
-
         const mushroom = document.createElement("div");
         mushroom.className = "mushroom";
         this.add.dom(410, 310, mushroom);
+        
+              var ask1 = this.add.title('¿como se llama un triangulo con dos de sus lados iguales?');
+              var ask2 = this.add.title('¿como sacamos el area de un triangulo?');
+              var ask3 = this.add.title('¿cuanto es un positivo por un negativo?');
+              var ask4 = this.add.title('la raiz de dos al cuadrado es:' );
+              var ask5 = this.add.title('¿como sacamos el perimetro de un triangulo?');
+
+
     }
 
 });

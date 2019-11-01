@@ -7,6 +7,8 @@ h1 {
 h2 {
   font-family: cursive;
   font-size: 49px;
+  height: 160px;
+  width: 160px;
 }
 
 .circle {
