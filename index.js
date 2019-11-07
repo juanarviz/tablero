@@ -91,11 +91,11 @@ var Game = new Phaser.Class({
         this.canSpin = false;
 
         this.categories = [
-            { color: '#FF0000', title: 'Matemáticas' },
-            { color: '#00FF00', title: 'Geografía' },
-            { color: '#0000FF', title: 'Historia' },
+            { color: '#f91e38', title: 'Matemáticas' },
+            { color: '#f1ee37', title: 'Geografía' },
+            { color: '#37a2f1', title: 'Historia' },
             { color: '#FF00FF', title: 'Ciencias Naturales' },
-            { color: '#00FFFF', title: 'Español' }
+            { color: '#9c55d7', title: 'Español' }
         ];
     },
 
@@ -159,7 +159,7 @@ var Game = new Phaser.Class({
         this.categoryText.innerHTML = '';
         this.add.dom(350, 290, this.categoryText);
 
-          var next = this.add.image(300, 230, 'next');
+          var next = this.add.image(210, 250, 'next');
           next.displayWidth = 120;
           next.displayHeight = 120;
 
@@ -209,15 +209,23 @@ var Nivel1 = new Phaser.Class({
         var image3 = this.add.image(80, 80, 'mushroom');
         image3.displayWidth = 80;
         image3.displayHeight = 80;
+//recordar hacer entre en falso que la variable de pregunta se falta al entrar y luego al hacer click sea verdader//
+//asi al tocar el muñequito apafrezca la pregunta en vez del signo
+        grayCircle.setInteractive();
+
+        grayCircle.once('pointerup', function () {
+            this.add.dom(470, 180, 'div', null, 'ask1');
+        }, this);
 
         const grayCircle = document.createElement("div");
         grayCircle.className = "circle gray";
         this.add.dom(400, 200, grayCircle);
         this.add.dom(470, 180, 'h2', null, '?');
 
+
         const redCircle = document.createElement("div");
         redCircle.className = "circle red";
-        this.add.dom(415, 440, redCircle);
+        this.add.dom(415, 450, redCircle);
         this.add.dom(480, 450, 'h2', null, '?');
 
         const greenCircle = document.createElement("div");
@@ -241,19 +249,22 @@ var Nivel1 = new Phaser.Class({
 
         const mushroom = document.createElement("div");
         mushroom.className = "mushroom";
-        this.add.dom(410, 310, mushroom);
-        
-              var ask1 = this.add.title('¿como se llama un triangulo con dos de sus lados iguales?');
-              var ask2 = this.add.title('¿como sacamos el area de un triangulo?');
-              var ask3 = this.add.title('¿cuanto es un positivo por un negativo?');
-              var ask4 = this.add.title('la raiz de dos al cuadrado es:' );
-              var ask5 = this.add.title('¿como sacamos el perimetro de un triangulo?');
+        this.add.dom(410, 310, mushroom)
 
-
+            var ask1 = this.add.title('¿como se llama un triangulo con dos de sus lados iguales?');
+              //var ask2 = this.add.title('¿como sacamos el area de un triangulo?');
+              //var ask3 = this.add.title('¿cuanto es un positivo por un negativo?');
+              //var ask4 = this.add.title('la raiz de dos al cuadrado es:' );
+              //var ask5 = this.add.title('¿como sacamos el perimetro de un triangulo?');
     }
 
-});
+    grayCircle.setInteractive();
 
+    grayCircle.once('pointerup', function () {
+        this.add.dom(470, 180, 'div', null, 'ask1');
+    }, this);
+
+});
 
 
 var GameOver = new Phaser.Class({
