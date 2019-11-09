@@ -193,6 +193,7 @@ var Nivel1 = new Phaser.Class({
     {
         Phaser.Scene.call(this, { key: 'nivel1' });
         window.OVER = this;
+        this.h2 = true;
     },
 
     preload: function()
@@ -209,13 +210,14 @@ var Nivel1 = new Phaser.Class({
         var image3 = this.add.image(80, 80, 'mushroom');
         image3.displayWidth = 80;
         image3.displayHeight = 80;
+
 //recordar hacer entre en falso que la variable de pregunta se falta al entrar y luego al hacer click sea verdader//
 //asi al tocar el muñequito apafrezca la pregunta en vez del signo
-        grayCircle.setInteractive();
+      //  grayCircle.setInteractive();
 
-        grayCircle.once('pointerup', function () {
-            this.add.dom(470, 180, 'div', null, 'ask1');
-        }, this);
+      //  grayCircle.once('pointerup', function () {
+      //      this.add.dom(470, 180, 'div', null, 'ask1');
+      //  }, this);
 
         const grayCircle = document.createElement("div");
         grayCircle.className = "circle gray";
@@ -251,18 +253,24 @@ var Nivel1 = new Phaser.Class({
         mushroom.className = "mushroom";
         this.add.dom(410, 310, mushroom)
 
-            var ask1 = this.add.title('¿como se llama un triangulo con dos de sus lados iguales?');
+        const hola = document.createElement("div");
+        hola.className = "hola";
+
+        var mus = this.add.image(410, 310, 'mushroom');
+
+        mus.setInteractive();
+//aca se supone que al hacer interrracion con el muñequito me aparecer aun div llamado hola
+        mus.once('pointerup', function () {
+          this.add.text(400,200,'hola a todossss');
+        //  this.add.dom(400, 200, hola);
+       }, );
+
+          //  var ask1 = this.add.title('¿como se llama un triangulo con dos de sus lados iguales?');
               //var ask2 = this.add.title('¿como sacamos el area de un triangulo?');
               //var ask3 = this.add.title('¿cuanto es un positivo por un negativo?');
               //var ask4 = this.add.title('la raiz de dos al cuadrado es:' );
               //var ask5 = this.add.title('¿como sacamos el perimetro de un triangulo?');
     }
-
-    grayCircle.setInteractive();
-
-    grayCircle.once('pointerup', function () {
-        this.add.dom(470, 180, 'div', null, 'ask1');
-    }, this);
 
 });
 
@@ -277,6 +285,12 @@ var GameOver = new Phaser.Class({
     {
         Phaser.Scene.call(this, { key: 'gameover' });
         window.OVER = this;
+        this.regre = false;
+    },
+
+    preload: function()
+    {
+        this.load.image('regresar', 'assets/regresar.jpg');
     },
 
     create: function ()
@@ -287,10 +301,10 @@ var GameOver = new Phaser.Class({
 
         this.add.text(300, 500, 'Game Over - Click to start restart', { font: '16px Courier', fill: '#00ff00' });
 
-        this.input.once('pointerup', function (event) {
+    var regre = this.add.image(410, 310, 'regresar');
 
+        regre.once('pointerup', function (event) {
             this.scene.start('mainmenu');
-
         }, this);
     }
 
