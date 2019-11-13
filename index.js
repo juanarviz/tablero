@@ -211,6 +211,38 @@ var Nivel1 = new Phaser.Class({
         image3.displayWidth = 80;
         image3.displayHeight = 80;
 
+var preguntas = [
+  "¿Quien descubrio america?",
+  "quien es el mejor super heroe",
+  "porque los pollitos hacen pio?",
+];
+
+var respuestas = [
+  ["colon", "safari", "tu mismo", "yo"],
+  ["spiderman", "batman", "yo mismo", "tu mismo"],
+  ["tienen hambre", "tienen frio", "estan alegres", "estan tristes"],
+];
+
+var indice_aleatorio = Math.floor(Math.random()*preguntas.length);
+var respuestas_posibles = respuestas[indice_aleatorio];
+
+var text_respuestas = '';
+for(i in respuestas_posibles){
+  text_respuestas +='<input type = "radio"><label>'+respuestas_posibles[i]+'</label><br>';
+}
+
+var elemento = document.getElementById("pregunta");
+document.getElementById("respuestas").innerHTML = text_respuestas;
+document.getElementById("pregunta").innerHTML = preguntas[indice_aleatorio];
+
+
+
+
+
+
+
+
+
 //recordar hacer entre en falso que la variable de pregunta se falta al entrar y luego al hacer click sea verdader//
 //asi al tocar el muñequito apafrezca la pregunta en vez del signo
       //  grayCircle.setInteractive();
@@ -258,12 +290,12 @@ var Nivel1 = new Phaser.Class({
 
         var mus = this.add.image(410, 310, 'mushroom');
 
-        mus.setInteractive();
+      //  mus.setInteractive();
 //aca se supone que al hacer interrracion con el muñequito me aparecer aun div llamado hola
-        mus.once('pointerup', function () {
-          this.add.text(400,200,'hola a todossss');
+      //  mus.once('pointerup', function (mus.setInteractive= true;) {
+          this.add.text(400,200,'holaa');
         //  this.add.dom(400, 200, hola);
-       }, );
+    //   }, );
 
           //  var ask1 = this.add.title('¿como se llama un triangulo con dos de sus lados iguales?');
               //var ask2 = this.add.title('¿como sacamos el area de un triangulo?');
